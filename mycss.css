@@ -1,0 +1,19 @@
+#calcBody
+{
+    width:23%;
+    padding: 10px;
+    background-color: #444;
+}
+
+#calcBody .btn
+{
+    width: 22%;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#calcBody .textarea
+{
+    width: 98%;
+    text-align: right;
+}
