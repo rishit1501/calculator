@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <script data-require="jquery@*"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+   
+    <!--<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="mycss.css" />
+    
+  </head>
+
+  <body>
+    <div class="miain">
+      <div id="calcBody">
+        <textarea id="textarea" class="textarea" rows="1" placeholder="0" disabled></textarea>
+        <br />
+        <input type="button" class="btn btn-danger" onclick="textarea.value = '0'" value="C"></input>
+        <br />
+        <input type="button" class="btn btn-default" value="&radic;"></input>
+        <input type="button" class="btn btn-default" id="sqr" onclick="updateOutput('^2'); calcEval()"></input>
+        <input type="button" class="btn btn-default" id="cube" onclick="updateOutput('^3'); calcEval()" ></input>
+        <!--<input type="button" class="btn btn-default" onclick="textarea.value += ' % '!" value="x!"></input>-->
+        <input type="button" class="btn btn-default" onclick="updateOutput('!')" value="x!"></input>
+        <input type="button" class="btn btn-default" id="expo" onclick="updateOutput('^y'); calcEval()"></input>
+        <input type="button" class="btn btn-primary" onclick="calcEval()" value="="></input>
+        <br />
+
+        
+        
+        <input type="button" class="btn btn-info" onclick="updateOutput('7')" value="7"></input>
+        <input type="button" class="btn btn-info" onclick="updateOutput('8')" value="8"></input>
+        <input type="button" class="btn btn-info" onclick="updateOutput('9')" value="9"></input>
+        
+        <br>
+        <input type="button" class="btn btn-info" onclick="updateOutput('4')" value="4"></input>
+        <input type="button" class="btn btn-info" onclick="updateOutput('5')" value="5"></input>
+        <input type="button" class="btn btn-info" onclick="updateOutput('6')" value="6"></input>
+        <input type="button" class="btn btn-default" onclick="updateOutput('/')" value="&divide;"></input>
+        <br />
+        <input type="button" class="btn btn-info" onclick="updateOutput('1')" value="1"></input>
+        <input type="button" class="btn btn-info" onclick="updateOutput('2')"value="2"></input>
+        <input type="button" class="btn btn-info" onclick="updateOutput('3')" value="3"></input>
+        <input type="button" class="btn btn-default" onclick="updateOutput('*')" value="&times;"></input>
+        <br>
+        <input type="button" class="btn btn-default" onclick="updateOutput('.')" value="."></input>
+        <input type="button" class="btn btn-info" onclick="updateOutput('0')" value="0"></input>
+        <input type="button" class="btn btn-default" onclick="updateOutput('+')" value="+"></input>
+        <input type="button" class="btn btn-default" onclick="updateOutput('-')" value="&minus;"></input>
+        
+        <br>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="history">
+        <p>history: -</p>
+        <ol id="HistorySection">
+        </ol>
+      </div>
+    </div>
+    <script src="myjs.js"></script>
+</body>
+</html>
+
+
+
+
+
+<!-- My Attempt
+    <Bootstrap link 
+    <link rel="stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div class="calBody">
+            Text input output area
+            <textarea id="textarea" class="textarea" rows="2" placeholder="0"></textarea>
+            <br>
+
+            Clear screen button
+            <input type="button" class="btn btn-danger" value="CE" onclick="textarea.value ='0'">
+            <br>
+            
+            <input type="button" class="btn btn-danger" value="&radic;" onclick="updateText('&radic')">
+        </div>
+    </div>
+-->
