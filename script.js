@@ -1,5 +1,8 @@
 var display = document.getElementById("screen");
 var buttons = document.getElementsByClassName("button");
+var len =0;
+// var result;
+var i=1;
   
   Array.prototype.forEach.call(buttons, function(button) {
   button.addEventListener("click", function() {
@@ -40,9 +43,9 @@ var buttons = document.getElementsByClassName("button");
 
 
 function syntaxError() {
-  if (eval(display.value) == SyntaxError || eval(display.value) == ReferenceError || eval(display.value) == TypeError) {
-    display.value == "Syntax Error";
-  }
+  // if (eval(display.value) == SyntaxError || eval(display.value) == ReferenceError || eval(display.value) == TypeError) {
+  //   display.value == "Syntax Error";
+  // }
 }
 
 
@@ -52,18 +55,33 @@ function equals() {
     var exponent = (display.value).slice((display.value).indexOf("^") + 1);
     display.value = eval("Math.pow(" + base + "," + exponent + ")");
   } else {
-    display.value = eval(display.value)
-    checkLength()
-    syntaxError()
+    
+    // result = display.value;
+    let eq = display.value; 
+    display.value = eval(display.value);
+    let ans = display.value;
+    result={eq,ans};
+    checkLength();
+    syntaxError();
   }
+  updateOutput();
 }
 
 function clear() {
-  display.value = "";
+  display.value = "0";
 }
 
 function backspace() {
-  display.value = display.value.substring(0, display.value.length - 1);
+  
+  if(len==0)
+  {
+    display.value=0;
+  }
+  else
+  {
+    display.value = display.value.substring(0, display.value.length - 1);
+    len-=1;
+  }
 }
 
 function multiply() {
@@ -93,20 +111,67 @@ function factorial() {
 
 
 function square() {
+  let eq = display.value + "²" ;
   display.value = eval(display.value * display.value);
+  let ans = display.value;
+  result= {eq,ans};
+  updateOutput();
 }
 
 
 function cube() {
+  let eq = display.value + "³" ;
     display.value = eval(display.value * display.value * display.value);
+    let ans = display.value;
+    result= {eq,ans};
+    updateOutput();
   }
   
 function squareRoot() {
+  let eq = "√" + display.value  ;
   display.value = Math.sqrt(display.value);
+  let ans = display.value;
+    result= {eq,ans};
+    updateOutput(); 
 }
 
 
 
 function exponent() {
   display.value += "^";
+}
+
+function checkLength()
+{
+
+}
+
+function updateOutput()
+{
+  let abc=[];
+  abc=JSON.parse(localStorage.getItem('ans'));
+  if(abc == null)
+  {
+    abc=[];
+  }
+  abc.push(result);
+ // abc.push(display.value);
+  localStorage.setItem('ans',JSON.stringify(abc));
+  for (var i = 0; i < localStorage.length; i++)
+  {
+    console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+    // do something with localStorage.getItem(localStorage.key(i));
+  } 
+  
+}
+
+window.onload=function(){
+let history=[];
+ history =JSON.parse(localStorage.getItem('ans'));
+ let ulID=document.getElementById('HistorySection');
+  history.forEach(element => {
+    let newLI=document.createElement('li');
+    newLI.textContent=("Equation :"+element.eq+ " Ans :"+element.ans);
+    ulID.appendChild(newLI); 
+  });
 }
