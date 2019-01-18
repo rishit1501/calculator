@@ -1,33 +1,30 @@
+
+/* css to align body in center */
 body {
-  /*  background: #085078;  /* fallback for old browsers */
-  /*background: -webkit-linear-gradient(to right, #85D8CE, #085078);  /* Chrome 10-25, Safari 5.1-6 */
-/*  background: linear-gradient(to right, #85D8CE, #085078); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  }
+    text-align: center;
+}
   
-  /*.calculator {
-     width: 490px;
-  background-color: beige;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 12% 30%;
-  
-  }*/
-  .calculator
-  {
-    width:30.99%;
+/* main div css */
+.calculator{
+    margin-left: 30%;
+    margin-top: 15px;
+    width: 380px;
     border:3px outset #777;
     border-radius:3px;
     /* padding:10px; */
     background:#444;
+}
+
+/* css for history section */
+.history
+  {
+      /* background-color: #9DB68C; */
+      width: 380px;
+      margin-left: 30%;
+    margin-top: 15px;
   }
-  
-  .btn-info {
-    color:#000;
-    font-weight:bold;
-    flex-wrap: wrap;
-    justify-content: space-between
-  }
-  input[type=text] {
+/* css for input output text area */
+input[type=text] {
   /* width: 300px;
       height: 25px;
       border-radius: 5px;
@@ -37,6 +34,7 @@ body {
       padding: 0 5px 0 5px;
       margin: 0 0px 10px 84px; */
       width:98%;
+      margin-top: 5px;
     /* margin-bottom:-10px; */
     cursor:default;
     resize:none;
@@ -44,57 +42,57 @@ body {
     text-align:right;
   
   }
-  
-  .calc-buttons {
+/* css for 1st div uneder main div(.calulator) */
+.calc-buttons {
       display: flex;
   /* flex-wrap: wrap; */
   /* justify-content: space-between; */
   
   }
-  
-  .button {
-       margin: 3px;
-       width: 63px;
-       border: none;
-       height: 25px;
-       border-radius: 4px;
-       color: #000000;
-       cursor: pointer;
+
+/* css for all buttons */
+.button {
+    margin: 3px;
+    width: 63px;
+    border: none;
+    height: 25px;
+    border-radius: 4px;
+    color: #000000;
+    cursor: pointer;
   }
-  
-  button:hover {
+/* css for on button hover   */
+button:hover {
     background-color: hsla(180, 100%, 40%, 0.3);
     transition: .2s;
-  }
+}
   
   
   
+/* css for div containing numbers, C,<=,equal squareroot and dot  */
+.functions-one {
+    margin-top: 5px; 
+    width: 220px;
+    height: auto;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    
+    /* justify-content: space-evenly; */
+}
   
-  .functions-one {
-      margin-top: 5px; 
-      width: 220px;
-      height: auto;
-      /* display: flex; */
-      /* flex-wrap: wrap; */
-      
-      /* justify-content: space-evenly; */
-  }
+/* css for div containing operators   */
+.functions-two {
+width: 150px;
+margin-top: 5px;
+height: auto;
+/*background-color: #ffc266; 
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+}
   
-  
-  .functions-two {
-  width: 150px;
-  margin-top: 5px;
-  height: auto;
-  /*background-color: #ffc266; 
-      /* display: flex; */
-      /* flex-wrap: wrap; */
-      /* justify-content: space-between; */
-  }
-  
-  .triggers {
-      background-color: #ffc266;
-      
-  }
+.triggers {
+    background-color: #ffc266;  
+}
   
   
   
@@ -111,3 +109,6 @@ body {
   }
 
   #calculator .display::-webkit-input-placeholder { color:#000; }
+
+
+

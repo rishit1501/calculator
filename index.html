@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Calculaor</title>
+    <!-- css link -->
     <link rel="stylesheet" href="style.css">
 
-
+    <!-- bootstrap links -->
     <script data-require="jquery@*" data-semver="1.9.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link data-require="bootstrap-css@*" data-semver="3.0.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link data-require="bootstrap@3.0.0" data-semver="3.0.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -15,13 +16,21 @@
    
 </head>
 <body>
+        <!-- main body starts here -->
         <div class="calculator">
-                <input type="text" id="screen" maxlength="10" disabled placeholder="0">
+                <input type="text" id="subscreen" placeholder="0" disabled/>
+                <!-- input output text area -->
+                <input type="text" id="mainscreen" pattern="\d[0-9]" disabled placeholder="0" maxlength="10"/>
+                
                 <div class="calc-buttons">
                         <div class="functions-one">
+                                <!-- clear button -->
                                 <button class="button triggers  btn-danger">C</button>
+                                <!-- backspace button -->
                                 <button class="button triggers  gtn-default">&#60;=</button>
+                                <!-- square root button -->
                                 <button class="button complex-stuff">√</button>
+                                <!-- numeric buttons from 0 to 9 -->
                                 <button class="button numbers btn-default">7</button>
                                 <button class="button numbers btn-default">8</button>
                                 <button class="button numbers btn-default">9</button>
@@ -31,10 +40,10 @@
                                 <button class="button numbers btn-default">1</button>
                                 <button class="button numbers btn-default">2</button>
                                 <button class="button numbers btn-default">3</button>
-                                
                                 <button class="button numbers btn-default">0</button>
-                                <button class="button triggers">=</button>
+                                <!-- button for a dot -->
                                 <button class="button basic-stuff">.</button>
+                                <button class="button triggers equals">=</button>
                         </div>
             
         
@@ -42,31 +51,44 @@
         
                         <div class="functions-two">
                                 <!-- <button class="button triggers">&#60;=</button> -->
+                                
+                                <!-- sqaure button -->
                                 <button class="button complex-stuff">x ²</button>
-                                
+                                <!-- x power y button -->
                                 <button class="button complex-stuff">x^</button>
+                                <!-- button for division -->
                                 <button class="button basic-stuff">/</button>
-                                
+                                <!-- button to calculate factorial -->
                                 <button class="button complex-stuff">x !</button>
-                                
-                                
+                                <!-- button for multiplication -->
                                 <button class="button basic-stuff">*</button>
-                                <button class="button complex-stuff">x ³</button><br>   
-                                
-                                <button class="button basic-stuff">-</button><br>
+                                <!-- button to calculate cube of x -->
+                                <button class="button complex-stuff">x ³</button>
+                                <br> 
+                                <!-- button for subtraction -->
+                                <button class="button basic-stuff">-</button>
+                                <!-- button for changing sign of a value -->
+                                <button class="button complex-stuff">±</button>
+                                <br>
+                                <!-- button for addition -->
                                 <button class="button basic-stuff">+</button>
+                                <!-- button to toggle history section -->
+                                <button id="historybtn" class="button triggers btn-danger">H</button>
+
                         </div>                   
                 </div>
 
         </div>
-
-        <div class="main">
-                <div class="history output">
-                        <p>history: -</p>
+        <!-- history section -->
+        <div id="main" class="main"></div>
+                <div id="history" class="history">
+                        <p>Calculation History: -</p>
+                        <!-- list of history -->
                         <ol id="HistorySection">
                         </ol>
                 </div>
         </div>
+        <!-- link for external js -->
         <script src="script.js"></script>
 </body>
 </html>
