@@ -14,7 +14,16 @@ body {
     /* padding:10px; */
     background:#444;
 }
-
+.main
+{
+    visibility: hidden;
+}
+.history
+{
+border-style: solid;
+  border-color: black;
+  border-width: 3px;
+}
 /* css for history section */
 .history
   {

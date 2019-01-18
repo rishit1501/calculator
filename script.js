@@ -1,15 +1,16 @@
 var display = document.getElementById("mainscreen");
 var secondDispaly = document.getElementById("subscreen");
 var buttons = document.getElementsByClassName("button");
-var toEval = "";
-var operator_status = true;
-var operators = ["+", "-", "*", "/"];
+var toEval = ""; //val to evaluate input
+let visibile_cnt = 0; 
 let dot_status = false; //if false then add dot to string/display else dont
-var op;
+
 var len = 0;
 var result;
 var i = 1;
 secondDispaly.value="";
+
+//event listners for all buttons
 Array.prototype.forEach.call(buttons, function (button) {
 	button.addEventListener("click", function () {
 		if (button.textContent != "=" &&
@@ -25,10 +26,10 @@ Array.prototype.forEach.call(buttons, function (button) {
 			button.textContent != "<=" &&
 			button.textContent != "x^" &&
 			button.textContent != "." &&
-			//  button.textContent==operators.includes(button.textContent)&&
+			
 			button.textContent != "H" &&
 			button.textContent != "x !") {
-
+			//if length is less than 10 charater will be added to current value	
 			if (checkLength(display.value += button.textContent)) {
 				display.value = display.value;
 				len += 1;
@@ -43,9 +44,6 @@ Array.prototype.forEach.call(buttons, function (button) {
 			dot();
 		} else if (button.textContent === "C") {
 			clear();
-			// }// else if (operators.includes(button.textContent)) {
-			// op=button.textContent;
-			// addOperator();
     } else if (button.textContent === "+") {
 			add();
 		} else if (button.textContent === "-") {
@@ -74,25 +72,8 @@ Array.prototype.forEach.call(buttons, function (button) {
 	});
 });
 
-/*
-function addOperator()
-{
-console.log("operator");  
-let str_last_value = display.value.charAt(display.value.length-1);
-if(!operators.includes(str_last_value) && (str_last_value !="-"))
-{
-  display.value=display.value;
-  len+=1;
-  dot_status=false;
-}
-else if(operators.includes(str_last_value) && (str_last_value =="-") )
-{
-  display.value = display.value.slice(0, display.value.length - 1);
-  len-=1;
-  dot_status=false;
-}
-}
-*/
+
+//to restrict multiple times dot
 function dot() {
 	if (!dot_status) {
 		display.value += ".";
@@ -105,6 +86,8 @@ function dot() {
 	}
 }
 
+
+///check syntax error
 function syntaxError() {
 	try {
 		eval(display.value);
@@ -115,81 +98,10 @@ function syntaxError() {
 			return false;
 		}
 	}
-	/* if (eval(display.value) == SyntaxError || eval(display.value) == ReferenceError || eval(display.value) == TypeError) {
-	    display.value == "Syntax Error";
-	//  return true;
-	}*/
-	// return false;
-
 }
 
-
-// function equals() {
-// 	let here_ans;
-// 	if (syntaxError()) {
-// 		alert("syntax error");
-// 		display.value = "";
-// 	} else {
-// 		if ((display.value).indexOf("^") > -1) {
-// 			let eq = display.value;
-// 			var base = (display.value).slice(0, (display.value).indexOf("^"));
-// 			var exponent = (display.value).slice((display.value).indexOf("^") + 1);
-// 			display.value = eval("Math.pow(" + base + "," + exponent + ")");
-// 			let ans = eval("Math.pow(" + base + "," + exponent + ")");
-
-// 			result = {
-// 				eq,
-// 				ans
-// 			};
-
-// 		} else {
-
-// 			// result = display.value;
-// 			let eq = display.value;
-// 			// display.value = eval(display.value);
-// 			// let ans = display.value;
-// 			let ans;
-// 			here_ans = eval(display.value).toString();
-
-// 			if (here_ans.includes(".")) {
-// 				console.log(here_ans.indexOf(".") >= 0)
-// 				ans = parseFloat(here_ans).toFixed(10);
-// 				ans = ans.toString().substring(0, 9);
-// 				//ans.toFixed(10).toPrecision(10);
-// 				display.value = ans;
-// 			} else {
-// 				if (here_ans.length > 9) {
-// 					ans = here_ans.substring(0, 9);
-// 					display.value = and;
-// 				} else {
-// 					ans = here_ans;
-// 					display.value = ans;
-// 				}
-// 			}
-
-// 			/*  if(typeof eval(display.value) == "float")
-// 			  {
-			    
-// 			  }
-// 			  else
-// 			  {
-// 			    ans=eval(display.value);
-// 			  //  ans = ans.substring(0,9);
-// 			    display.value=ans;
-// 			  }*/
-// 			result = {
-// 				eq,
-// 				ans
-// 			};
-// 			//checkLength();
-// 			syntaxError();
-// 		}
-
-// 	}
-
-// 	updateOutput();
-// }
-
+//equal function attempt
+/*
 function equals() {
   toEval+=display.value;
   secondDispaly.value+=display.value;
@@ -241,24 +153,28 @@ function equals() {
 
 	updateOutput();
 }
+*/
 
+//clear screen button
 function clear() {
 	display.value = "";
+	secondDispaly.value="";
 	window.location.reload();
 }
 
+//to remove characters from end
 function backspace() {
 
 	if (len == 0) {
 		display.value = "";
 	} else {
-		// console.log(display.value);
-		//console.log((display.value.slice(0, display.value.length - 1)));
+		
 		display.value = display.value.slice(0, display.value.length - 1);
 		len -= 1;
 	}
 }
 
+//functions to display +,-,* and /
 function add() 
 {
   display.value += "+";
@@ -292,7 +208,7 @@ function divide() {
   dot_status = false;
 }
 
-
+//function to calculate factorial
 function factorial() {
   if(display.value.indexOf(".")<= '-1'){
 	var number = 1;
@@ -324,7 +240,7 @@ function factorial() {
 }
 }
 
-
+//function to calculate square
 function square() {
   display.value += "²";
   secondDispaly.value+=display.value;
@@ -338,7 +254,7 @@ function square() {
 	updateOutput();
 }
 
-
+//function to calculate cube
 function cube() {
   display.value += "³";
   secondDispaly.value+=display.value;
@@ -353,31 +269,26 @@ function cube() {
 	updateOutput();
 }
 
+//function to calculate square root
 function squareRoot() {
-	/*let eq = "√" + display.value  ;
-	display.value = Math.sqrt(display.value);
-	let ans = display.value;
-	  result= {eq,ans};*/
-
-  // console.log(typeof display.value);
+	
   display.value += "√";
   secondDispaly.value+=display.value;
 	let eq = "√" + display.value;
-	// display.value = eval(display.value);
-	// let ans = display.value;
+	
 	let ans;
 	if (typeof Math.sqrt(display.value).length >= "10") {
 		ans = Math.sqrt(display.value);
 		ans = parseFloat(ans).toFixed(10);
-		// console.log(typeof ans, ans);
+		
 		display.value = ans.toString();
-		//  console.log(typeof display.value);
+		
 	} else {
 		ans = eval(display.value);
 		ans.substring(0, 9);
 		display.value = ans;
 	}
-	//  console.log(display.value.length);
+	
 	result = {
 		eq,
 		ans
@@ -385,7 +296,7 @@ function squareRoot() {
 	updateOutput();
 }
 
-
+//function to calculate exponent
 function exponent() {
   display.value += "^";
   secondDispaly.value+=display.value;
@@ -394,6 +305,7 @@ function exponent() {
   dot_status = false;
 }
 
+//function to checklength of display
 function checkLength() {
 	// console.log(display.value.length);
 	if (display.value.length < 10) {
@@ -402,6 +314,7 @@ function checkLength() {
 	return false;
 }
 
+//function to update history and localstorage
 function updateOutput() {
   	let abc = [];
 	abc = JSON.parse(localStorage.getItem('ans'));
@@ -413,13 +326,10 @@ function updateOutput() {
 	}
 	abc.push(result);
 	localStorage.setItem('ans', JSON.stringify(abc));
-	/* for (var i = 0; i < localStorage.length; i++)
-	{
-	  console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
-	  // do something with localStorage.getItem(localStorage.key(i));
-	}*/
+	
 }
 
+//update history display section to on load of window
 window.onload = function () {
 	let history = [];
 	history = JSON.parse(localStorage.getItem('ans'));
@@ -432,33 +342,36 @@ window.onload = function () {
 		});
 	}
 }
-/*
+
 function updateHistory(){
-let history=[];
-history =JSON.parse(localStorage.getItem('ans'));
-if(history !== null)
-{
-let ulID=document.getElementById('HistorySection');
-history.forEach(element => {
-  let newLI=document.createElement('li');
-  newLI.textContent=("Equation :"+element.eq+ " Ans :"+element.ans);
-  ulID.appendChild(newLI); 
-});
-}
+
+  
 }
 
-*/
 
+//show / hide history senction
 function showHistory() {
-	console.log("history");
-	// $( "#history" ).load(window.location.href + " #history" );
-	$("#historybtn").click(function () {
-		alert('clicked')
-		$("#history").load(" #history >  *");
-	});
-	console.log("history");
+	
+  let history_container = document.getElementById("history");
+  if(visibile_cnt==0)
+  {
+    
+    console.log("updated show");
+    history_container.style.visibility = "visible";
+    visibile_cnt=1;
+    
+  }
+  else if(visibile_cnt==1)
+  {
+	window.location.reload();
+    history_container.style.visibility = "hidden";
+	visibile_cnt=0;
+	 
+  }
+	
 }
 
+//change sign of number 
 function plusMinus() {
 	if (display.value.charAt(0) === "-") {
 		display.value = display.value.slice(1);
