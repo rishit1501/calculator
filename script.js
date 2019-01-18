@@ -101,7 +101,7 @@ function syntaxError() {
 }
 
 //equal function attempt
-/*
+
 function equals() {
   toEval+=display.value;
   secondDispaly.value+=display.value;
@@ -153,7 +153,7 @@ function equals() {
 
 	updateOutput();
 }
-*/
+
 
 //clear screen button
 function clear() {
