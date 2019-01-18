@@ -4,95 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <script data-require="jquery@*"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+    <title>Calculaor</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css">
 
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!-- bootstrap links -->
+    <script data-require="jquery@*" data-semver="1.9.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link data-require="bootstrap-css@*" data-semver="3.0.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link data-require="bootstrap@3.0.0" data-semver="3.0.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script data-require="bootstrap@3.0.0" data-semver="3.0.0" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    
-    <!--<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">-->
-    <link rel="stylesheet" href="mycss.css" />
-    
-  </head>
-
-  <body>
-    <div class="miain">
-      <div id="calcBody">
-        <textarea id="textarea" class="textarea" rows="1" placeholder="0" disabled></textarea>
-        <br />
-        <input type="button" class="btn btn-danger" onclick="textarea.value = '0'" value="C"></input>
-        <br />
-        <input type="button" class="btn btn-default" value="&radic;"></input>
-        <input type="button" class="btn btn-default" id="sqr" onclick="updateOutput('^2'); calcEval()"></input>
-        <input type="button" class="btn btn-default" id="cube" onclick="updateOutput('^3'); calcEval()" ></input>
-        <!--<input type="button" class="btn btn-default" onclick="textarea.value += ' % '!" value="x!"></input>-->
-        <input type="button" class="btn btn-default" onclick="updateOutput('!')" value="x!"></input>
-        <input type="button" class="btn btn-default" id="expo" onclick="updateOutput('^y'); calcEval()"></input>
-        <input type="button" class="btn btn-primary" onclick="calcEval()" value="="></input>
-        <br />
-
-        
-        
-        <input type="button" class="btn btn-info" onclick="updateOutput('7')" value="7"></input>
-        <input type="button" class="btn btn-info" onclick="updateOutput('8')" value="8"></input>
-        <input type="button" class="btn btn-info" onclick="updateOutput('9')" value="9"></input>
-        
-        <br>
-        <input type="button" class="btn btn-info" onclick="updateOutput('4')" value="4"></input>
-        <input type="button" class="btn btn-info" onclick="updateOutput('5')" value="5"></input>
-        <input type="button" class="btn btn-info" onclick="updateOutput('6')" value="6"></input>
-        <input type="button" class="btn btn-default" onclick="updateOutput('/')" value="&divide;"></input>
-        <br />
-        <input type="button" class="btn btn-info" onclick="updateOutput('1')" value="1"></input>
-        <input type="button" class="btn btn-info" onclick="updateOutput('2')"value="2"></input>
-        <input type="button" class="btn btn-info" onclick="updateOutput('3')" value="3"></input>
-        <input type="button" class="btn btn-default" onclick="updateOutput('*')" value="&times;"></input>
-        <br>
-        <input type="button" class="btn btn-default" onclick="updateOutput('.')" value="."></input>
-        <input type="button" class="btn btn-info" onclick="updateOutput('0')" value="0"></input>
-        <input type="button" class="btn btn-default" onclick="updateOutput('+')" value="+"></input>
-        <input type="button" class="btn btn-default" onclick="updateOutput('-')" value="&minus;"></input>
-        
-        <br>
-      </div>
-    </div>
-    
-    <div class="container">
-      <div class="history">
-        <p>history: -</p>
-        <ol id="HistorySection">
-        </ol>
-      </div>
-    </div>
-    <script src="myjs.js"></script>
-</body>
-</html>
-
-
-
-
-
-<!-- My Attempt
-    <Bootstrap link 
-    <link rel="stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <title>Document</title>
 </head>
 <body>
-    <div class="main">
-        <div class="calBody">
-            Text input output area
-            <textarea id="textarea" class="textarea" rows="2" placeholder="0"></textarea>
-            <br>
-
-            Clear screen button
-            <input type="button" class="btn btn-danger" value="CE" onclick="textarea.value ='0'">
-            <br>
+        <!-- main body starts here -->
+        <div class="calculator">
+                <input type="text" id="subscreen" placeholder="0" disabled/>
+                <!-- input output text area -->
+                <input type="text" id="mainscreen" pattern="\d[0-9]" disabled placeholder="0" maxlength="10"/>
+                
+                <div class="calc-buttons">
+                        <div class="functions-one">
+                                <!-- clear button -->
+                                <button class="button triggers  btn-danger">C</button>
+                                <!-- backspace button -->
+                                <button class="button triggers  gtn-default">&#60;=</button>
+                                <!-- square root button -->
+                                <button class="button complex-stuff">√</button>
+                                <!-- numeric buttons from 0 to 9 -->
+                                <button class="button numbers btn-default">7</button>
+                                <button class="button numbers btn-default">8</button>
+                                <button class="button numbers btn-default">9</button>
+                                <button class="button numbers btn-default">4</button>
+                                <button class="button numbers btn-default">5</button>
+                                <button class="button numbers btn-default">6</button>
+                                <button class="button numbers btn-default">1</button>
+                                <button class="button numbers btn-default">2</button>
+                                <button class="button numbers btn-default">3</button>
+                                <button class="button numbers btn-default">0</button>
+                                <!-- button for a dot -->
+                                <button class="button basic-stuff">.</button>
+                                <button class="button triggers equals">=</button>
+                        </div>
             
-            <input type="button" class="btn btn-danger" value="&radic;" onclick="updateText('&radic')">
+        
+        
+        
+                        <div class="functions-two">
+                                <!-- <button class="button triggers">&#60;=</button> -->
+                                
+                                <!-- sqaure button -->
+                                <button class="button complex-stuff">x ²</button>
+                                <!-- x power y button -->
+                                <button class="button complex-stuff">x^</button>
+                                <!-- button for division -->
+                                <button class="button basic-stuff">/</button>
+                                <!-- button to calculate factorial -->
+                                <button class="button complex-stuff">x !</button>
+                                <!-- button for multiplication -->
+                                <button class="button basic-stuff">*</button>
+                                <!-- button to calculate cube of x -->
+                                <button class="button complex-stuff">x ³</button>
+                                <br> 
+                                <!-- button for subtraction -->
+                                <button class="button basic-stuff">-</button>
+                                <!-- button for changing sign of a value -->
+                                <button class="button complex-stuff">±</button>
+                                <br>
+                                <!-- button for addition -->
+                                <button class="button basic-stuff">+</button>
+                                <!-- button to toggle history section -->
+                                <button id="historybtn" class="button triggers btn-danger">H</button>
+
+                        </div>                   
+                </div>
+
         </div>
-    </div>
--->
+        <!-- history section -->
+        <div id="main" class="main">
+                <!-- <p>Calculation History: -</p> -->
+                <div id="history" class="history">
+                        <p>Calculation History: -</p>
+                        <!-- list of history -->
+                        <ol id="HistorySection">
+                        </ol>
+                </div>
+        </div>
+        <!-- link for external js -->
+        <script src="script.js"></script>
+</body>
+</html>
