@@ -152,9 +152,9 @@ function equals() {
       // display.value = eval(display.value);
       // let ans = display.value;
       let ans;
-      here_ans = eval(display.value);
+      here_ans = eval(display.value).toString();
       
-    /*  if( here_ans.indexOf(".")>=0)
+      if( here_ans.includes("."))
       {
         console.log(here_ans.indexOf(".")>=0)
         ans= parseFloat(here_ans).toFixed(10);
@@ -173,9 +173,9 @@ function equals() {
           ans=here_ans;
           display.value=ans;
         }
-      }*/
+      }
       
-      if(typeof eval(display.value) == "float")
+    /*  if(typeof eval(display.value) == "float")
       {
         
       }
@@ -184,7 +184,7 @@ function equals() {
         ans=eval(display.value);
       //  ans = ans.substring(0,9);
         display.value=ans;
-      }
+      }*/
       result={eq,ans};
       //checkLength();
       syntaxError();
